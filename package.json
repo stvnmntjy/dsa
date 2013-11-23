@@ -12,8 +12,7 @@
     "start": "coffee server.coffee"
   },
   "dependencies": {
-    "express": "~3.2.4",
-    "moment": "~2.3.0"
+    "express": "~3.2.4"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
