@@ -7,6 +7,46 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
     clean: ["#{_bin}", "#{_compiled}"]
+    coffee:
+      prod:
+        files: [
+          {
+            src: [
+              "#{_src}/modules/service.coffee"
+              "#{_src}/services/algos.coffee"
+              "#{_src}/modules/directive.coffee"
+              "#{_src}/directives/barchart.coffee"
+              "#{_src}/modules/ctrl.coffee"
+              "#{_src}/controllers/appctrl.coffee"
+              "#{_src}/modules/app.coffee"
+            ]
+            dest: "#{_compiled}/coffee.js"
+            nonull: true
+          }
+        ]
+    jade:
+      prod:
+        options:
+          pretty: true
+        files: [
+          {
+            src: [
+              "#{_src}/index.jade"
+            ]
+            dest: "#{_bin}/index.html"
+            nonull: true
+          }
+        ]
+    stylus:
+      prod:
+        files: [
+          {
+            src: [
+              "#{_src}/stylus/index.styl"
+            ]
+            dest: "#{_compiled}/stylus.css"
+          }
+        ]
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -17,7 +57,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'prod', ['clean']
+  grunt.registerTask 'prod', ['clean', 'jade:prod', 'stylus:prod', 'coffee:prod']
 
   return
 

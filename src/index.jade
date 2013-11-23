@@ -7,4 +7,50 @@ html(data-ng-app="dsa", lang="en")
     title Data Structures and Algorithms
     link(href="../css/dsa.css", rel="stylesheet", type="text/css")
   body(data-ng-controller="AppCtrl")
+    main.container(data-ng-controller="AppCtrl")
+      .row
+        .col-md-12
+          nav.navbar.navbar-default
+            ul.nav.navbar-nav
+              li
+                a(href="#") Sorting
+      .row
+        .col-md-12
+          a(href="#") Bubble
+          a(href="#") Bucket
+          a(href="#") Counting
+          a(href="#") Heap
+          a(href="#") Insertion
+          a(href="#") Merge
+          a(href="#") Quick
+          a(href="#") Radix
+          a(href="#") Selection
+          a(href="#") Shell
+      .row
+        .col-md-12
+          #dsa1.text-center
+      .row
+        .col-md-12
+          .text-center
+            .btn-group
+              button.btn-btn-default(type="button", title="play")
+                i.fa.fa-play
+              button.btn-btn-default(type="button", title="pause")
+                i.fa.fa-pause
+            .btn-group
+              button.btn-btn-default(type="button", title="to start")
+                i.fa.fa-backward
+              button.btn-btn-default(type="button", title="to previous swap")
+                i.fa.fa-fast-backward
+              button.btn-btn-default(type="button", title="to previous step")
+                i.fa.fa-step-backward
+              button.btn-btn-default(type="button", title="to next step")
+                i.fa.fa-step-forward
+              button.btn-btn-default(type="button", title="to next swap")
+                i.fa.fa-fast-forward
+              button.btn-btn-default(type="button", title="to end")
+                i.fa.fa-forward
+            .btn-group
+              button.btn-btn-default(type="button", title="randomize", data-ng-click="randomize()")
+                i.fa.fa-random
     script(src="../js/dsa.js", type="text/javascript", charset="utf-8")
