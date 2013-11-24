@@ -39,7 +39,7 @@ angular.module('dsa.services').service 'ds', ->
       return
     removeFirst: ->
       node = null
-      if isnt @isEmpty()
+      if not @isEmpty()
         node = @first()
         if @size() is 1
           @f = null
@@ -50,7 +50,7 @@ angular.module('dsa.services').service 'ds', ->
       node
     removeLast: ->
       node = null
-      if isnt @isEmpty()
+      if not @isEmpty()
         if @size() is 1
           node = @removeFirst()
         else
