@@ -24,6 +24,49 @@ module.exports = (grunt) ->
             nonull: true
           }
         ]
+    concat:
+      prod:
+        options:
+          separator: '\n'
+          stripBanners:
+            block: true
+            line: true
+        files: [
+          {
+            src: [
+              "#{_bower}/bootstrap/dist/css/bootstrap.min.css"
+              "#{_bower}/font-awesome/css/font-awesome.min.css"
+              "#{_compiled}/stylus.css"
+            ]
+            dest: "#{_bin}/css/dsa.css"
+            nonull: true
+          }
+          {
+            src: [
+              "#{_bower}/jquery/jquery.min.js"
+              "#{_bower}/bootstrap/dist/js/bootstrap.min.js"
+              "#{_bower}/chance/chance.js"
+              "#{_bower}/d3/d3.js"
+              "#{_bower}/angular/angular.js"
+              "#{_compiled}/coffee.js"
+            ]
+            dest: "#{_bin}/js/dsa.js"
+            nonull: true
+          }
+        ]
+    copy:
+      prod:
+        files: [
+          {
+            src: [
+              '**'
+            ]
+            dest: "#{_bin}/fonts/"
+            expand: true
+            cwd: "#{_bower}/font-awesome/fonts"
+            nonull: true
+          }
+        ]
     jade:
       prod:
         options:
@@ -45,6 +88,7 @@ module.exports = (grunt) ->
               "#{_src}/stylus/index.styl"
             ]
             dest: "#{_compiled}/stylus.css"
+            nonull: true
           }
         ]
 
@@ -57,7 +101,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'prod', ['clean', 'jade:prod', 'stylus:prod', 'coffee:prod']
+  grunt.registerTask 'prod', ['clean', 'jade:prod', 'stylus:prod', 'coffee:prod', 'concat:prod', 'copy:prod']
 
   return
 

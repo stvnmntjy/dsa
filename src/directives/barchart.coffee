@@ -1,4 +1,4 @@
-app.directive 'barChart', ->
+angular.module('dsa.directives').directive 'barChart', ->
   template:
     """
     <svg></svg>

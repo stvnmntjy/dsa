@@ -1,1 +1,1 @@
-angular.module 'dsa.controllers', ['dsa.directives']
+angular.module 'dsa.controllers', ['dsa.services', 'dsa.directives']
