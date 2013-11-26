@@ -1,4 +1,4 @@
-angular.module('dsa.controllers').controller 'AppCtrl', ['$scope', '$compile', 'algos', ($scope, $compile, algos) ->
+angular.module('dsa.controllers').controller 'AppCtrl', ['$scope', '$compile', 'ds', 'algos', ($scope, $compile, ds, algos) ->
   newGraph = ->
     width = $('#dsa1').parent().width()
     el = $compile("""<bar-chart data-array="arr" data-svg-width="#{width}"></bar-chart>""")($scope.$new())
@@ -6,11 +6,15 @@ angular.module('dsa.controllers').controller 'AppCtrl', ['$scope', '$compile', '
     return
   newArray = ->
     $scope.arr = chance.shuffle (i for i in [1..20])
-    $scope.iters = []
-    $scope.iters.push $scope.arr
     return
   $scope.arr = []
-  $scope.iters = []
+  $scope.end = ->
+  $scope.nextStep = ->
+  $scope.nextSwap = ->
+  $scope.pause = ->
+  $scope.play = ->
+  $scope.prevStep = ->
+  $scope.prevSwap = ->
   $scope.randomize = ->
     newArray()
     $scope.restart()
@@ -18,15 +22,15 @@ angular.module('dsa.controllers').controller 'AppCtrl', ['$scope', '$compile', '
   $scope.restart = ->
     newGraph()
     return
+  $scope.start = ->
   $scope.randomize()
   pairs = algos.invertedPairs $scope.arr
   console.log "# of inverted pairs: #{pairs.length}"
-  swapped = true
-  console.log "#{$scope.iters.length - 1} : #{$scope.iters[0]}"
-  while swapped is true
-    swapped = algos.bubbleSort $scope.arr, 0, $scope.iters.length - 1, false
-    $scope.iters.push $scope.arr
-  console.log "#{$scope.iters.length - 1} : #{$scope.iters[$scope.iters.length - 1]}"
+  console.log $scope.arr
+  llist = algos.bubbleSort $scope.arr
+  node = llist.first()
+  while node.next isnt null
+    node = node.next
   return
 ]
 

@@ -27,5 +27,11 @@ angular.module('dsa.directives').directive 'barChart', ->
         width: scaleX.rangeBand()
         x: (d, idx) -> scaleX idx
         y: (d) -> scaleY d
-      )
+      ).
+      on('foo', (d, idx) ->
+        console.log 'foo'
+        return)
+    dispatcher = d3.dispatch 'foo'
+    dispatcher.foo()
     return
+

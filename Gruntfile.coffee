@@ -13,6 +13,7 @@ module.exports = (grunt) ->
           {
             src: [
               "#{_src}/modules/service.coffee"
+              "#{_src}/services/ds.coffee"
               "#{_src}/services/algos.coffee"
               "#{_src}/modules/directive.coffee"
               "#{_src}/directives/barchart.coffee"

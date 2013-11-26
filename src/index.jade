@@ -33,22 +33,22 @@ html(data-ng-app="dsa", lang="en")
         .col-md-12
           .text-center
             .btn-group
-              button.btn-btn-default(type="button", title="play")
+              button.btn-btn-default(type="button", title="play", data-ng-click="play()")
                 i.fa.fa-play
-              button.btn-btn-default(type="button", title="pause")
+              button.btn-btn-default(type="button", title="pause", data-ng-click="pause()")
                 i.fa.fa-pause
             .btn-group
-              button.btn-btn-default(type="button", title="to start")
+              button.btn-btn-default(type="button", title="to start", data-ng-click="start()")
                 i.fa.fa-backward
-              button.btn-btn-default(type="button", title="to previous swap")
+              button.btn-btn-default(type="button", title="to previous swap", data-ng-click="prevSwap()")
                 i.fa.fa-fast-backward
-              button.btn-btn-default(type="button", title="to previous step")
+              button.btn-btn-default(type="button", title="to previous step", data-ng-click="prevStep()")
                 i.fa.fa-step-backward
-              button.btn-btn-default(type="button", title="to next step")
+              button.btn-btn-default(type="button", title="to next step", data-ng-click="nextStep()")
                 i.fa.fa-step-forward
-              button.btn-btn-default(type="button", title="to next swap")
+              button.btn-btn-default(type="button", title="to next swap", data-ng-click="nextSwap()")
                 i.fa.fa-fast-forward
-              button.btn-btn-default(type="button", title="to end")
+              button.btn-btn-default(type="button", title="to end", data-ng-click="end()")
                 i.fa.fa-forward
             .btn-group
               button.btn-btn-default(type="button", title="randomize", data-ng-click="randomize()")
