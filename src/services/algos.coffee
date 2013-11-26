@@ -28,5 +28,8 @@ angular.module('dsa.services').service 'algos', ['ds', (ds) ->
           _bubbleSort 0, iter + 1, false
         return
     _bubbleSort 0, 0, false
-    list
+    {
+      array: arr
+      moves: list
+    }
 ]
